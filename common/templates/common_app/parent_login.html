@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top-nav {
+            height: 40px;
+            background-color: lightpink;
+            width: 100%;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: purple;
+            font-size: medium;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        .top-nav a:hover {
+            color: brown;
+            text-decoration: underline;
+        }
+
+        .flex-view {
+            display: flex;
+        }
+        .flex-left{
+            height: 570px;
+            width: 50%;
+            background-image: url("/static/images/parent.jpg");
+            background-size: cover;
+        }
+        .flex-right{
+            margin-left:10px;
+            padding-left: 50px;
+            width: 49%;
+            height: 570px;
+            /* border: 1px black solid; */
+        }
+        .flex-right h1{
+            text-align:  center;
+            color: #75B79E;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .flex-right label{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #75B79E;
+            font-size: large;
+            font-weight: bold;
+
+        }
+        .flex-right input{
+            height: 30px;
+            border: 2px solid pink;
+            border-radius: 5em;
+
+        }
+        #submit{
+            background-color: #75B79E;
+            border: #75B79E;
+            width: 80px;
+            margin-left: 200px;
+        }
+        #submit:hover{
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="common_home">Home</a>
+    </nav>
+   
+        <div class="flex-view">
+            <div class="flex-left">
+
+            </div>
+
+            <div class="flex-right">
+            <h1>Parent Login</h1><br><br><br>
+            <label for="">Username</label>
+            <input type="text" size="50"><br><br><br><br>
+            <label for="">Password</label>
+            <input type="password" name="" id="" size="50"><br><br><br><br>
+            <input type="submit" value="Login" id="submit">
+        </div>
+        </div>
+
+</body>
+
+</html>

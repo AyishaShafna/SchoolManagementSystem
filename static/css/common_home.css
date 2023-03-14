@@ -1,0 +1,8 @@
+.flex-div{
+    display: flex;
+    justify-content: space-around;
+}
+.top-nav{
+    height: 30px;
+    background-color: #cdb4db;
+}

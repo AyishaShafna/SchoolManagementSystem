@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top-nav {
+            height: 40px;
+            background-color: #02808f;
+            width: 100%;
+        }
+        .container{
+            height: 500px;
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+
+        }
+        .container h1{
+            text-align:  center;
+            color: #02808f;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .container label{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #02808f;
+            font-size: large;
+            font-weight: bold;
+
+        }
+        .container input{
+            height: 30px;
+            border: 2px solid #fe8787;
+            border-radius: 5em;
+        
+
+        }
+        #submit{
+            background-color: #02808f;
+            border: #02808f;
+            width: 80px;
+            margin-left: 200px;
+        }
+        #submit:hover{
+            background-color: #fe8787;
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="#"></a>
+    </nav>
+    <div class="container">
+            <h1>Admin</h1>
+            <label for="">Username</label>
+            <input type="text" size="50"><br><br><br><br>
+            <label for="">Password</label>
+            <input type="password" name="" id="" size="50"><br><br><br><br>
+            <input type="submit" value="Login" id="submit">
+
+    </div>
+</body>
+</html>

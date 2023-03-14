@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .top-nav {
+            height: 40px;
+            background-color: #02808f;
+            width: 100%;
+            position: sticky;
+            top: 0;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: large;
+
+        }
+        .card{
+            background-color: #fab340;
+            height: 180px;
+        }
+        .row{
+            margin-top: 50px;
+            padding-bottom: 30px;
+        }
+        .col-sm-4{
+            padding: 30px;
+        }
+        .teacher-card{
+            background-image: url("/static/images/teacherlogo.png");
+            background-size: 100px;
+            background-repeat: no-repeat;
+        }
+        .student-card{
+            background-image: url("/static/images/studentlogo.png");
+            background-size: 100px;
+            background-repeat: no-repeat;
+        }
+        .attendance-card{
+            background-image: url("/static/images/attendancelogo.png");
+            background-size: 100px;
+            background-repeat: no-repeat;
+        }
+        .complaint-card{
+            background-image: url("/static/images/complaintlogo.png");
+            background-size: 100px;
+            background-repeat: no-repeat;
+        }
+        .fees-card{
+            background-image: url("/static/images/feeslogo.png");
+            background-size: 120px;
+            background-repeat: no-repeat;
+        }
+        .salary-card{
+            background-image: url("/static/images/salary-logo.png");
+            background-size: 100px;
+            background-repeat: no-repeat;
+        }
+        h3{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .attendance-card h3{
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+        .btn{
+            margin-top: 40px;
+            margin-left: 50px;
+            background-color: #02808f;
+            border: 1px solid #02808f ;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="#" style="margin-left: 50px;">Home</a>
+        <a href="#" style="margin-left: 1100px;">Logout</a>
+    </nav>
+    <div class="container">
+
+
+
+
+        <div class="row">
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <div class="card">
+                    <div class="card-body teacher-card">
+                        <h3 class="card-title">Teachers</h3>
+                        <a href="#" class="btn btn-primary">Click Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body student-card">
+                        <h3 class="card-title">Students</h3>
+                        <a href="#" class="btn btn-primary">Click Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body attendance-card">
+                        <h3 class="card-title">Attendance</h3>
+                        <a href="#" class="btn btn-primary">Click Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body fees-card">
+                        <h3 class="card-title">Fees</h3>
+                        <a href="#" class="btn btn-primary">Click Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body salary-card">
+                        <h3 class="card-title">Salary</h3>
+                        <a href="#" class="btn btn-primary">Click Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body complaint-card">
+                        <h3 class="card-title">Complaints</h3>
+                        <a href="#" class="btn btn-primary">Click Here</a>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
