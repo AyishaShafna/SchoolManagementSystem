@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .top-nav {
+            height: 40px;
+            background-color: #02808f;
+            width: 100%;
+            position: sticky;
+            top: 0;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: large;
+
+        }
+
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .flex-view {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 300px;
+            height: 600px;
+            background-color: #5B6B7A;
+            border-right: black 2px solid;
+            position: static;
+
+        }
+        .sidebar a{
+            margin-top: 50px;
+            margin-left: 30px;
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: x-large;
+        }
+        .sidebar a:hover{
+            color: black;
+            text-decoration: underline;
+        }
+        .body{
+            height: 600px;
+            width: 100%;
+            /* background-color:  #E0E0DE; */
+        }
+        .card{
+            background-color: #FDFD96;
+            height: 180px;
+        }
+        .row{
+            margin-top: 50px;
+            padding-bottom: 30px;
+        }
+        .col-sm-4{
+            padding: 30px;
+        }
+        h3{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn{
+            margin-top: 40px;
+            margin-left: 90px;
+            background-color: #02808f;
+            border: 1px solid #02808f ;
+        }
+        .btn:hover{
+            background-color: pink;
+            border-color: pink;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="{% url 'admn:home' %}" style="margin-left: 50px;">Home</a>
+        <a href="{% url 'admn:admin_logout' %}" style="margin-left: 1100px;">Logout</a>
+    </nav>
+    <div class="flex-view">
+        <div class="sidebar">
+            <a href="{% url 'admn:teachers_page' %}">Teacher</a>
+            <a href="{% url 'admn:student_page' %}">Student</a>
+            <a href="">Attendance</a>
+            <a href="{% url 'admn:fees_page' %}">Fees</a>
+            <a href="{% url 'admn:notification_page' %}">Announcements</a>
+            <a href="{% url 'admn:complaints_page' %}">Complaints</a>
+        </div>
+
+        <div class="body">
+            <div class="row">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card">
+                        <div class="card-body teacher-card">
+                            <h3 class="card-title">Add Notification</h3>
+                            <a href="{% url 'admn:add_notification' %}" class="btn btn-primary">Click Here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body student-card">
+                            <h3 class="card-title">View Notification</h3>
+                            <a href="{% url 'admn:view_notification' %}" class="btn btn-primary">Click Here</a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+    
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

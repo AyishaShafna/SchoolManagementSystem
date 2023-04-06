@@ -23,8 +23,11 @@
             color: white;
             font-weight: bold;
             font-size: large;
-
         }
+        .top-nav a:hover{
+            text-decoration: underline;
+        }
+
         .card{
             background-color: #fab340;
             height: 180px;
@@ -61,8 +64,8 @@
             background-size: 120px;
             background-repeat: no-repeat;
         }
-        .salary-card{
-            background-image: url("/static/images/salary-logo.png");
+        .announcement-card{
+            background-image: url("/static/images/announcementlogo.png");
             background-size: 100px;
             background-repeat: no-repeat;
         }
@@ -72,6 +75,11 @@
         }
         .attendance-card h3{
             margin-left: 50px;
+            margin-top: 20px;
+        }
+
+        .announcement-card h3{
+            margin-left: 75px;
             margin-top: 20px;
         }
         .btn{
@@ -86,7 +94,7 @@
 <body>
     <nav class="top-nav">
         <a href="#" style="margin-left: 50px;">Home</a>
-        <a href="#" style="margin-left: 1100px;">Logout</a>
+        <a href="{% url 'admn:admin_logout' %}" style="margin-left: 1100px;">Logout</a>
     </nav>
     <div class="container">
 
@@ -98,7 +106,7 @@
                 <div class="card">
                     <div class="card-body teacher-card">
                         <h3 class="card-title">Teachers</h3>
-                        <a href="#" class="btn btn-primary">Click Here</a>
+                        <a href="{% url 'admn:teachers_page' %}" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
             </div>
@@ -106,7 +114,7 @@
                 <div class="card">
                     <div class="card-body student-card">
                         <h3 class="card-title">Students</h3>
-                        <a href="#" class="btn btn-primary">Click Here</a>
+                        <a href="{% url 'admn:student_page' %}" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
             </div>
@@ -122,15 +130,15 @@
                 <div class="card">
                     <div class="card-body fees-card">
                         <h3 class="card-title">Fees</h3>
-                        <a href="#" class="btn btn-primary">Click Here</a>
+                        <a href="{% url 'admn:fees_page' %}" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="card">
-                    <div class="card-body salary-card">
-                        <h3 class="card-title">Salary</h3>
-                        <a href="#" class="btn btn-primary">Click Here</a>
+                    <div class="card-body announcement-card">
+                        <h3 class="card-title">Announcements</h3>
+                        <a href="{% url 'admn:notification_page' %}" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
             </div>
@@ -138,7 +146,7 @@
                 <div class="card">
                     <div class="card-body complaint-card">
                         <h3 class="card-title">Complaints</h3>
-                        <a href="#" class="btn btn-primary">Click Here</a>
+                        <a href="{% url 'admn:complaints_page' %}" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
             </div>

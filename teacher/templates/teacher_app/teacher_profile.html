@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+    <style>
+        .top-nav {
+            height: 50px;
+            background-color: #96ceb4;
+            width: 100%;
+            /* vertical-align: middle; */
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: purple;
+            font-size: medium;
+            font-weight: bold;
+            /* margin-top: 20px; */
+            margin-left: 20px;
+            margin-right: 20px;
+            /* vertical-align: bottom; */
+
+        }
+
+        .top-nav a:hover {
+            color: brown;
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 100%;
+            height: 600px;
+            margin-left: 0px;
+            /* background-color: #ffd3b6; */
+        }
+
+        .flex-view {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flex-left {
+            height: 570px;
+            width: 300px;
+            background-color: #96ceb4;
+            border: 1px solid #96ceb4;
+            border-radius: 25em;
+            /* margin-left: 10px; */
+            margin-top: 10px;
+        }
+
+        .flex-left a {
+            display: block;
+            text-decoration: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: brown;
+            font-size: medium;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-left: 30px;
+        }
+
+        .flex-left a:hover {
+            background-color: #ffd3b6;
+            text-decoration: underline;
+            border-radius: 5em;
+            background-size: 30px;
+        }
+
+        .flex-right {
+            margin-left: 10px;
+            padding-left: 50px;
+            width: 100%;
+            height: 570px;
+            /* background-image: url("/static/images/addstudent_backgrnd-removebg-preview.png");
+            background-size: cover;
+            background-repeat: no-repeat; */
+            /* border: 1px black solid; */
+        }
+
+        .flex-right h2 {
+            text-align: center;
+            /* color: #75B79E; */
+            color: brown;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .right{
+            margin-left: auto;
+            margin-right: auto;
+            width:500px;
+            height: 570px;
+        }
+        .right img{
+            border-radius: 10em;
+        }
+        #btn{
+            background-color: green;
+            margin-left: 100px;
+        }
+        #btn:hover{
+            background-color: pink;
+            box-shadow: 5px black;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav flex-view">
+        <a href="{% url 'teacher:teacher_home' %}" style="margin-top: 15px;">Home</a>
+        <!-- <a href="#" style="margin-top: 15px;">Ayisha</a> -->
+        <a href="{% url 'teacher:teacher_logout' %}" style="margin-top: 15px;">Logout</a>
+    </nav>
+    <div class="container">
+
+        <div class="flex-view">
+            <div class="flex-left">
+                <a href="{% url 'teacher:teacher_profile' %}" style="margin-top: 50px;">My Profile</a>
+                <a href="">Take Attendance</a>
+                <a href="">View Attendance</a>
+                <a href="">Add Results</a>
+                <a href="">View Results</a>
+                <a href="">Update Results</a>
+                <!-- <a href="">View Results</a> -->
+                <a href="">Add Notification</a>
+                <a href="{% url 'teacher:add_students' %}">Add Students</a>
+                <a href="{% url 'teacher:view_student' %}">View Students</a>
+            </div>
+
+            <div class="flex-right">
+                
+                    <div class="right">
+                        <h2>My Profile</h2>
+                        <img src="{{teacher.image.url}}" alt="" height="200px" width="200px">
+                        <p> <b> Name :</b> {{teacher.name}}</p>
+                        <p> <b> Gender :</b> {{teacher.gender}}</p>
+                        <p>  <b> DOB :</b> {{teacher.dob}}</p>
+                        <p> <b> Address : </b>{{teacher.address}}</p>
+                        <p> <b> Class in Charge : </b>{{teacher.clas}} </p>
+                        <p> <b> Subject : </b>{{teacher.subject}}</p>
+                        <p> <b> Salary : </b>{{teacher.salary}}</p>
+                        <p> <b> Mobile : </b>{{teacher.mobile}}</p>
+                        <p> <b> Email : </b>{{teacher.email}}</p><br><br>
+
+                        <a href="{% url 'teacher:change_password' %}">Change Password</a><br><br><br>
+                        {{msg}}
+
+                        
+
+                    </div>
+                        
+
+                
+                
+            </div>
+</body>
+
+</html>

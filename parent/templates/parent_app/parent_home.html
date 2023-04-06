@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+    <style>
+        .top-nav {
+            height: 50px;
+            background-color: #96ceb4;
+            width: 100%;
+            /* vertical-align: middle; */
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: purple;
+            font-size: medium;
+            font-weight: bold;
+            /* margin-top: 20px; */
+            margin-left: 20px;
+            margin-right: 20px;
+            /* vertical-align: bottom; */
+
+        }
+
+        .top-nav a:hover {
+            color: brown;
+            text-decoration: underline;
+        }
+
+        .container {
+            /* width: 100%; */
+            width: 1600px;
+            height: 600px;
+            /* background-color: #ffd3b6; */
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .flex-view {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flex-left {
+            height: 570px;
+            width: 18%;
+            background-color: #96ceb4;
+            border: 1px solid #96ceb4;
+            border-radius: 25em;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .flex-left a {
+            display: block;
+            text-decoration: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: brown;
+            font-size: medium;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-left: 30px;
+        }
+
+        .flex-left a:hover {
+            background-color: #ffd3b6;
+            text-decoration: underline;
+            border-radius: 5em;
+            background-size: 30px;
+        }
+
+        .flex-right {
+            margin-left: 10px;
+            padding-left: 50px;
+            width: 100%;
+            height: 570px;
+            /* background-image: url("/static/images/teacherhome.png");
+            background-size: contain;
+            background-repeat: no-repeat; */
+            /* border: 1px black solid; */
+        }
+
+        .flex-right h1,
+        h3 {
+            text-align: center;
+            color: #75B79E;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .row{
+            padding-top: 15px;
+        }
+
+       .card{
+        background-color: #75B79E;
+        margin-top: 15px;
+        height: auto;
+        box-shadow: 5px 5px gray;
+       }
+
+       .card img{
+        height: 150px;
+        width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+        border-radius: 8em;
+        box-shadow: 3px 3px 3px 3px gray;
+
+       }
+       .col-sm-4{
+        margin-left: 15px;
+       }
+
+        /* #submit{
+            background-color: #75B79E;
+            border: #75B79E;
+            width: 80px;
+            margin-left: 200px;
+        }
+        #submit:hover{
+            background-color: pink;
+        } */
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav flex-view">
+        <a href="{% url 'parent:parent_home' %}" style="margin-top: 15px;">Home</a>
+        <!-- <a href="#" style="margin-top: 15px;">Ayisha</a> -->
+        <a href="{}" style="margin-top: 15px;">Logout</a>
+    </nav>
+    <div class="container">
+
+        <div class="flex-view">
+            <div class="flex-left">
+                <a href="" style="margin-top: 50px;">Notifications</a>
+                <a href="">Complaints</a>
+                <!-- <a href="">Add Results</a> -->
+                <!-- <a href="">View Results</a>
+            <a href="">Update Results</a>
+            <a href="">Add Notification</a>
+            <a href="">Add Students</a>
+            <a href="">View Students</a> -->
+
+
+
+
+            </div>
+
+            <div class="flex-right">
+                <h1> </h1>
+                <div class="row">
+                    {% for x in stdnt %}
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <div class="card" style="width: 18rem;">
+                            <img src="http://127.0.0.1:8000/media/{{x.image}}" class="card-img-top" alt="..." height="100px" width="100px">
+                            <div class="card-body">
+                                <h5 class="card-title">Student Name: {{x.name}}</h5>
+                                <p class="card-text"><b> Class :</b> {{x.clas}}</p>
+                                <p class="card-text"><b>Roll No: </b>{{x.roll_no}}</p>
+
+                                <a href="{% url 'parent:stdnt_dtls' x.id %}" class="btn btn-primary">Click Here</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

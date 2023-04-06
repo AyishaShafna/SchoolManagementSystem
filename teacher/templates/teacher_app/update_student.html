@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top-nav {
+            height: 50px;
+            background-color: #96ceb4;
+            width: 100%;
+            /* vertical-align: middle; */
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: purple;
+            font-size: medium;
+            font-weight: bold;
+            /* margin-top: 20px; */
+            margin-left: 20px;
+            margin-right: 20px;
+            /* vertical-align: bottom; */
+
+        }
+
+        .top-nav a:hover {
+            color: brown;
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 100%;
+            height: 600px;
+            /* background-color: #ffd3b6; */
+        }
+
+        .flex-view {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flex-left {
+            height: 570px;
+            width: 18%;
+            background-color: #96ceb4;
+            border: 1px solid #96ceb4;
+            border-radius: 25em;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .flex-left a {
+            display: block;
+            text-decoration: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: brown;
+            font-size: medium;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-left: 30px;
+        }
+
+        .flex-left a:hover {
+            background-color: #ffd3b6;
+            text-decoration: underline;
+            border-radius: 5em;
+            background-size: 30px;
+        }
+
+        .flex-right {
+            margin-left: 10px;
+            padding-left: 50px;
+            width: 100%;
+            height: 570px;
+            /* background-image: url("/static/images/addstudent_backgrnd-removebg-preview.png");
+            background-size: cover;
+            background-repeat: no-repeat; */
+            /* border: 1px black solid; */
+        }
+
+        .flex-right h1 {
+            text-align: center;
+            /* color: #75B79E; */
+            color: brown;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .form {
+            height: auto;
+            width: 600px;
+            margin-top: 20px;
+            margin-left: 200px;
+            margin-right: auto;
+            background-color: rgb(90, 90, 90, .4);
+            border-radius: 5em;
+
+        }
+
+        .insideform {
+            padding-top: 40px;
+            margin-left: 40px;
+            padding-bottom: 30px;
+        }
+
+        .flex-right label {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            /* color: #75B79E; */
+            color: purple;
+            font-size: large;
+            font-weight: bold;
+
+        }
+
+        .flex-right input {
+            height: 30px;
+            border: 1px solid darkgrey;
+            border-radius: 5em;
+            padding-left: 10px;
+
+        }
+
+        #submit {
+            background-color: #75B79E;
+            border: #75B79E;
+            width: auto;
+            margin-left: 200px;
+        }
+
+        #submit:hover {
+            background-color: pink;
+
+        }
+
+        #teacheridlabel, #teacheridinput{
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav flex-view">
+        <a href="{% url 'teacher:teacher_home' %}" style="margin-top: 15px;">Home</a>
+        <!-- <a href="#" style="margin-top: 15px;">Ayisha</a> -->
+        <a href="{% url 'teacher:teacher_logout' %}" style="margin-top: 15px;">Logout</a>
+    </nav>
+    <div class="container">
+
+        <div class="flex-view">
+            <div class="flex-left">
+                <a href="" style="margin-top: 50px;">My Profile</a>
+                <a href="">Take Attendance</a>
+                <a href="">View Attendance</a>
+                <a href="">Add Results</a>
+                <a href="">View Results</a>
+                <a href="">Update Results</a>
+                <!-- <a href="">View Results</a> -->
+                <a href="">Add Notification</a>
+                <!-- <a href="{% url 'teacher:add_students' %}">Add Students</a> -->
+                <!-- <a href="{% url 'teacher:view_student' %}">View Students</a> -->
+                <a href="{% url 'teacher:update_student' stdnt_data.id %}">Update Students</a>
+            </div>
+
+            <div class="flex-right">
+                <div class="form">
+                    <div class="insideform">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <h1>Update Student</h1>
+                            <label for="">Name</label>
+                            <input type="text" size="50" name="s_name" value="{{stdnt_data.name}}" required><br><br>
+
+                            <label for="">Class</label>
+                            <input type="text" size="50" name="s_class" value="{{stdnt_data.clas}}" required><br><br>
+
+                            <label for="">Division</label>
+                            <input type="text" size="50" name="s_division" value="{{stdnt_data.division}}" required><br><br>
+
+                            <label for="">Roll No.</label>
+                            <input type="text" size="50" name="s_rollno" value="{{stdnt_data.roll_no}}" required><br><br>
+
+                            <label for="">Address</label>
+                            <input type="text" size="50" name="s_address" value="{{stdnt_data.address}}"required><br><br>
+
+                            <label for="">Gender</label>
+                            <input type="radio" name="s_gender" value="Male" id="" required><span> <label for=""> Male</label></span>
+                            <input type="radio" name="s_gender" value="Female" id="" required><span> <label for=""> Female</label></span><br><br>
+
+                    
+
+                            <label for="">Mobile</label>
+                            <input type="text" size="50" name="s_mobile" value="{{stdnt_data.mobile}}" required><br><br>
+
+                            <label for="">Email</label>
+                            <input type="text" size="50" name="s_email" value="{{stdnt_data.email}}" required><br><br>
+
+                            <label for="">Image</label>
+                            <input type="file" id="" name="s_image"><br><br>
+
+                            <label for="" id="teacheridlabel">Teacher id</label>
+                            <input type="text" size="50" name="s_teacherid" value="{{stdnt_data.teacher_id}}" id="teacheridinput"><br><br>
+
+
+                            <input type="Submit" value="Update Student" id="submit">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

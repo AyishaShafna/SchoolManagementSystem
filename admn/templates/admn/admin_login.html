@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +13,8 @@
             background-color: #02808f;
             width: 100%;
         }
-        .container{
+
+        .container {
             height: 500px;
             width: 600px;
             margin-left: auto;
@@ -20,48 +22,58 @@
             margin-top: 50px;
 
         }
-        .container h1{
-            text-align:  center;
+
+        .container h1 {
+            text-align: center;
             color: #02808f;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
-        .container label{
+
+        .container label {
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: #02808f;
             font-size: large;
             font-weight: bold;
 
         }
-        .container input{
+
+        .container input {
             height: 30px;
             border: 2px solid #fe8787;
             border-radius: 5em;
-        
+
 
         }
-        #submit{
+
+        #submit {
             background-color: #02808f;
             border: #02808f;
             width: 80px;
             margin-left: 200px;
         }
-        #submit:hover{
+
+        #submit:hover {
             background-color: #fe8787;
         }
     </style>
 </head>
+
 <body>
     <nav class="top-nav">
         <a href="#"></a>
     </nav>
     <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <h1>Admin</h1>
             <label for="">Username</label>
-            <input type="text" size="50"><br><br><br><br>
+            <input type="text" size="50" name="a_username"><br><br><br><br>
             <label for="">Password</label>
-            <input type="password" name="" id="" size="50"><br><br><br><br>
+            <input type="password"  id="" size="50" name="a_password"><br><br><br><br>
             <input type="submit" value="Login" id="submit">
-
+            {{message}}
+        </form>
     </div>
 </body>
+
 </html>

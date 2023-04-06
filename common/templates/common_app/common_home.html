@@ -70,11 +70,36 @@
         }
 
         .container {
-            background-image: url("/static/images/sample.png");
+            /* background-image: url("/static/images/sample.png");
             background-size: cover;
-            background-repeat: no-repeat;
-            height: 600px;
+            background-repeat: no-repeat; */
+            height: auto;
             width: 100%;
+            /* padding-top: 30px; */
+        }
+
+        .body {
+            height: 400px;
+            width: 1200px;
+        }
+
+        .about {
+            margin-top: 80px;
+            width: 50%;
+            height: auto;
+            border: 1px solid #FDFD96;
+            border-radius: 5em;
+            background-color: #FDFD96;
+        }
+
+        .about h2 {
+            margin-left: 20px;
+        }
+
+        .about p {
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
@@ -88,7 +113,7 @@
                 <a href="teachers_login">Teachers Login</a>
             </div>
         </nav>
-    
+
     </div>
 
 
@@ -102,7 +127,7 @@
             </div>
 
             <div class="nav-right">
-                <a href="">ABOUT</a>
+                <a href="#about">ABOUT</a>
                 <a href="">ACADEMIC</a>
                 <a href="">GENERAL</a>
                 <a href="">GALLERY</a>
@@ -113,7 +138,17 @@
     </div>
     <div class="container">
         <div class="body">
-            <!-- <img src="{% static 'images/homeimage.png' %}" width="200px"> -->
+            <img src="{% static 'images/sample.png' %}" width="1335px" height="500px">
+        </div><br><br>
+
+        <div class="about">
+            <h2><a name="about"> About Us</a></h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque asperiores nobis ea atque minima mollitia
+                quas blanditiis omnis nulla impedit, voluptate similique deleniti nesciunt, aut saepe explicabo vel qui
+                distinctio? Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, expedita! Quam aperiam
+                illum illo quidem rerum, corporis iste impedit necessitatibus quaerat animi doloremque, facilis ducimus
+                nisi, suscipit aliquam natus expedita.</p>
+
         </div>
     </div>
 </body>

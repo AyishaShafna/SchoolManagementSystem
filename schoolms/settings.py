@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'admn',
     'student',
-    'common'
+    'common',
+    'teacher',
+    'parent'
     
 ]
 
@@ -80,8 +82,12 @@ WSGI_APPLICATION = 'schoolms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'schoolms_new',   #created database
+        'USER':'postgres',
+        'PASSWORD':'root',
+        'HOST':'localhost',
+        'PORT':'5432'
     }
 }
 
@@ -123,6 +129,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 # STATIC_ROOT = os.path.join(BASE_DIR,'static')
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 
 # Default primary key field type

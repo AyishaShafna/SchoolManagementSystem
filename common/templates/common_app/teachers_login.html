@@ -86,12 +86,16 @@
             </div>
 
             <div class="flex-right">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
             <h1>Teacher Login</h1><br><br><br>
             <label for="">Username</label>
-            <input type="text" size="50"><br><br><br><br>
+            <input type="text" size="50" name="t_username" ><br><br><br><br>
             <label for="">Password</label>
-            <input type="password" name="" id="" size="50"><br><br><br><br>
+            <input type="password" name="t_password" id="" size="50" t_><br><br><br><br>
             <input type="submit" value="Login" id="submit">
+            {{message}}
+        </form>
         </div>
         </div>
 
