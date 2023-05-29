@@ -3,12 +3,14 @@ from django.http import HttpResponse
 from django.conf import settings
 from admn.models import Admin,Teacher
 from teacher.models import Student
+from admn.models import Notification
 from django.views.decorators.cache import cache_control
 import random
 
 # Create your views here.
 def common_home(request):
-    return render(request,'common_app/common_home.html')
+    notification = Notification.objects.all()
+    return render(request,'common_app/common_home.html',{'notification':notification})
 
 def parent_login(request):
     msg=''

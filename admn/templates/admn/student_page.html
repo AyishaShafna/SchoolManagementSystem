@@ -97,10 +97,8 @@
         <div class="sidebar">
             <a href="{% url 'admn:teachers_page' %}">Teacher</a>
             <a href="{% url 'admn:student_page' %}">Student</a>
-            <a href="">Attendance</a>
-            <a href="{% url 'admn:fees_page' %}">Fees</a>
             <a href="{% url 'admn:notification_page' %}">Announcements</a>
-            <a href="{% url 'admn:complaints_page' %}">Complaints</a>
+            <a href="{% url 'admn:attendance_class' %}">Attendance</a>
         </div>
 
         <div class="body">
@@ -109,18 +107,18 @@
                     <div class="card">
                         <div class="card-body teacher-card">
                             <h3 class="card-title">View Student</h3>
-                            <a href="{% url 'admn:view_student' %}" class="btn btn-primary">Click Here</a>
+                            <a href="{% url 'admn:fees_page' %}" class="btn btn-primary">Click Here</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <!-- <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body student-card">
                             <h3 class="card-title">Update Student</h3>
                             <a href="{% url 'admn:update_student' %}" class="btn btn-primary">Click Here</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
                 
                 

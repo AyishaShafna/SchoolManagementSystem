@@ -2,10 +2,11 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.conf import settings
 from admn.models import Admin,Teacher
-from teacher.models import Student,Result
+from teacher.models import Student,Result,Attendance
 from django.views.decorators.cache import cache_control
+from . serializers import AttendanceSerializer
 from django.http import JsonResponse    #import jsonresponse when using ajax
-
+import json
 
 # Create your views here.
 def teacher_home(request):
@@ -181,8 +182,36 @@ def update_result(request,student_id):
 
 
 def take_attendance(request):
-    return render(request,'teacher_app/take_attendance.html')
+    student = Student.objects.filter(teacher_id = request.session['teacher']).values('id','name','roll_no')
+    if request.method == 'POST':
+        attendance = request.POST['attendance_record']
+        data = json.loads(attendance)
+
+        serialized_data = AttendanceSerializer(data = data, many = True)
+        if serialized_data.is_valid():
+            serialized_data.save()
+            print('success')
+        else:
+            print(serialized_data.errors)
+        return JsonResponse({'status':'saved'})
+        print(attendance)
+
+    return render(request,'teacher_app/take_attendance.html',{'data':student})
 
 def view_attendance(request):
+    if request.method == 'POST':
+        
+        date = request.POST['att_date']
+        att = Attendance.objects.filter(student__teacher = request.session['teacher'] , date = date).select_related('student')
+        
+        return render(request,'teacher_app/view_attendance.html',{'d':att})
+        
+
+        
+        # except:
+        #     msg='invalid date'
+        
     return render(request,'teacher_app/view_attendance.html')
+        
+    
 

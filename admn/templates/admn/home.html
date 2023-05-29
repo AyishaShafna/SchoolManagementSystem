@@ -93,7 +93,7 @@
 
 <body>
     <nav class="top-nav">
-        <a href="#" style="margin-left: 50px;">Home</a>
+        <a href="% url 'admn:home' %}" style="margin-left: 50px;">Home</a>
         <a href="{% url 'admn:admin_logout' %}" style="margin-left: 1100px;">Logout</a>
     </nav>
     <div class="container">
@@ -122,18 +122,18 @@
                 <div class="card">
                     <div class="card-body attendance-card">
                         <h3 class="card-title">Attendance</h3>
-                        <a href="#" class="btn btn-primary">Click Here</a>
+                        <a href="{% url 'admn:attendance_class' %}" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <!-- <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body fees-card">
                         <h3 class="card-title">Fees</h3>
                         <a href="{% url 'admn:fees_page' %}" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body announcement-card">
@@ -142,14 +142,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <!-- <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body complaint-card">
                         <h3 class="card-title">Complaints</h3>
                         <a href="{% url 'admn:complaints_page' %}" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
             
 
         </div>

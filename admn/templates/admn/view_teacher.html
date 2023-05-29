@@ -77,6 +77,36 @@
             border: grey 2px solid;
             border-radius: 2em;
         }
+        .salary a{
+            display: block;
+        }
+        #b1{
+            background-color: pink;
+            border-color: pink;
+            border-radius: 2em;
+            color: black;
+        }
+        #b2{
+            background-color: yellow;
+            border-color: yellow;
+            border-radius: 2em;
+            color: black;
+        }
+        #b3{
+            background-color: lightblue;
+            border-color: lightblue;
+            border-radius: 2em;
+            color: black;
+        }
+        #b1:hover{
+            background-color: white;
+        }
+        #b2:hover{
+            background-color: white;
+        }
+        #b3:hover{
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -89,10 +119,8 @@
         <div class="sidebar">
             <a href="{% url 'admn:teachers_page' %}">Teacher</a>
             <a href="{% url 'admn:student_page' %}">Student</a>
-            <a href="">Attendance</a>
-            <a href="{% url 'admn:fees_page' %}">Fees</a>
             <a href="{% url 'admn:notification_page' %}">Announcements</a>
-            <a href="{% url 'admn:complaints_page' %}">Complaints</a>
+            <a href="{% url 'admn:attendance_class' %}">Attendance</a>
         </div>
         <div class="container">
             <div class="table-body">
@@ -110,6 +138,7 @@
                         <th>Subject</th>
                         <th>Salary</th>
                         <th>Image</th>
+                        <th>Salary Details</th>
 
 
                     </tr>
@@ -126,6 +155,11 @@
                         <td>{{teacher.subject}}</td>
                         <td>{{teacher.salary}}</td>
                         <td><img src="{{teacher.image.url}}" height="100px" width="100px"></td>
+                        <td class="salary">
+                            <a href="{% url 'admn:update_salary' teacher.id %}"><Button id="b1">Update Salary</Button></a>
+                            <a href="{% url 'admn:edit_salary' teacher.id %}"><button id="b2">Edit Salary</button></a>
+                            <a href=""><button id="b3">View Sal Det</button></a>
+                        </td>
 
 
                     </tr>

@@ -102,10 +102,8 @@
         <div class="sidebar">
             <a href="{% url 'admn:teachers_page' %}">Teacher</a>
             <a href="{% url 'admn:student_page' %}">Student</a>
-            <a href="">Attendance</a>
-            <a href="{% url 'admn:fees_page' %}">Fees</a>
             <a href="{% url 'admn:notification_page' %}">Announcements</a>
-            <a href="{% url 'admn:complaints_page' %}">Complaints</a>
+            <a href="{% url 'admn:attendance_class' %}">Attendance</a>
         </div>
         <div class="container">
             <div class="table-body">
@@ -129,19 +127,20 @@
                     </tr>
                     {% for x in student %}
                     <tr class="body-row">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{x.id}}</td>
+                        <td>{{x.name}}</td>
+                        <td>{{x.clas}}</td>
+                        <td>{{x.division}}</td>
+                        <td>{{x.clas}}</td>
+                        <td>{{x.enrolment_no}}</td>
+                        <td>{{x.address}}</td>
+                        <td>{{x.gender}}</td>
+                        <td>{{x.dob}}</td>
+                        <td>{{x.father_name}}</td>
+                        <td>{{x.mother_name}}</td>
+                        <td>{{x.mobile}}</td>
+                        <td>{{x.email}}</td>
+                        <td><img src="{{x.image.url}}" height="100px" width="100px"></td>
                     </tr>
                     {% endfor %}
                 </table>

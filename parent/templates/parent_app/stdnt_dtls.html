@@ -94,7 +94,7 @@
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
         .right{
-            margin-left: auto;
+            margin-left: 50px;
             margin-right: auto;
             width:500px;
             height: 570px;
@@ -102,24 +102,52 @@
         .right img{
             border-radius: 10em;
         }
-        #btn{
+        /* #btn{
             background-color: green;
             margin-left: 100px;
         }
         #btn:hover{
             background-color: pink;
             box-shadow: 5px black;
+        } */
+        .secondhalf{
+            display: block;
         }
-
+        .result{
+            margin-left: 100px;
+            margin-top: 50px;
+            height: 300px;
+            width: 300px;
+            background-color: bisque;
+        
+        }
+        .result h4{
+            margin-top: 10px;
+            padding-top: 10px;
+            text-align: center;
+            color: green;
+        }
+        .result a{
+            display: block;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+        .notification{
+            margin-left: 100px;
+            margin-top: 50px;
+            height: 300px;
+            width: 300px;
+            background-color: bisque;
+        }
         
     </style>
 </head>
 
 <body>
     <nav class="top-nav flex-view">
-        <a href="{% url 'teacher:teacher_home' %}" style="margin-top: 15px;">Home</a>
+        <a href="{% url 'parent:parent_home' %}" style="margin-top: 15px;">Home</a>
         <!-- <a href="#" style="margin-top: 15px;">Ayisha</a> -->
-        <a href="{% url 'teacher:teacher_logout' %}" style="margin-top: 15px;">Logout</a>
+        <a href="{% url 'parent:parent_logout' %}" style="margin-top: 15px;">Logout</a>
     </nav>
     <div class="container">
 
@@ -138,10 +166,13 @@
             </div> -->
 
             <div class="flex-right">
+        <div class="flex-view">
+
                 
                     <div class="right">
                         <h2>{{student_data.name}}</h2>
                         <img src="{{student_data.image.url}}" alt="" height="200px" width="200px">
+                        <p> <b> Name :</b> {{student_data.name}}</p>
                         <p> <b> Gender :</b> {{student_data.gender}}</p>
                         <p>  <b> DOB :</b> {{student_data.dob}}</p>
                         <p> <b> Address : </b>{{student_data.address}}</p>
@@ -149,15 +180,37 @@
                         <p> <b> Mother's Name : </b>{{student_data.mother_name}}</p>
                         <p> <b> Mobile : </b>{{student_data.mobile}}</p>
                         <p> <b> Email : </b>{{student_data.email}}</p>
-
+                        
+                        <div class="">
+                            <a href="{% url 'parent:view_attendance' student_data.id %}">View Attendance</a>
+                        </div>
                         
 
                     </div>
+                    <div class="secondhalf">
+                    <div class="result">
+                        <h4>Results</h4>
+                        {% for i in result %}
+                        <a href="http://127.0.0.1:8000/media/{{i.result}}" target="_blank"> First sem Result</a>
+                        {% endfor %}
+                    </div>
+
+                    <div class="result">
+                        <h4>Notification</h4>
+                        {% for notice in notification %}
+                        <a href="http://127.0.0.1:8000/media/{{notice.notification}}" target="_blank"> {{notice.message}}</a>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+                    
                         
 
                 
                 
             </div>
+          
 </body>
 
 </html>

@@ -36,7 +36,7 @@
 
         .sidebar {
             width: 300px;
-            height: auto;
+            height: 600px;
             background-color: #5B6B7A;
             border-right: black 2px solid;
             /* position: fixed; */
@@ -67,9 +67,9 @@
         .form{
             height: auto;
             width: 650px;
-            margin-top: 20px;
+            margin-top: 30px;
             margin-left: 150px;
-            background-color: rgb(190, 229, 176,.9);
+            background-color: rgb(90, 90, 90,.6);
             /* opacity: 0; */
             border-radius: 8em;
 
@@ -97,13 +97,13 @@
             text-align: center;
         }
         #submit{
-            margin-left: 230px;
+            margin-left: 250px;
             color: black;
             font-weight: bold;
             background-color: green;
             border-color: green;
             border-radius: 2em;
-            width: 200px;
+            width: 100px;
             height: 40px;
         }
         #submit:hover{
@@ -123,54 +123,32 @@
         <div class="sidebar">
             <a href="{% url 'admn:teachers_page' %}">Teacher</a>
             <a href="{% url 'admn:student_page' %}">Student</a>
+            <a href="">Attendance</a>
+            <a href="{% url 'admn:fees_page' %}">Fees</a>
             <a href="{% url 'admn:notification_page' %}">Announcements</a>
-            <a href="{% url 'admn:attendance_class' %}">Attendance</a>
+            <a href="{% url 'admn:complaints_page' %}">Complaints</a>
         </div>
 
         <div class="body">
             <div class="form">
                 
                 <div class="insideform">
-                    <form action="">
-                    <h3>Update Student</h3>
-                <label for="">Name</label>
-                <input type="text" size="50"><br><br>
-                
-                <label for="">Class</label>
-                <input type="text" size="50"><br><br>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                    <h3>Update Salary</h3>
+                <label for="">Teacher's Id</label>
+                <input type="text" size="50" value="{{teacher.id}}" name="t_id"><br><br>
 
-                <label for="">Division</label>
-                <input type="text" size="50"><br><br>
+                <label for="">Teacher's Name</label>
+                <input type="text" size="50" value="{{teacher.name}}"><br><br>
 
-                <label for="">Roll No.</label>
-                <input type="text" size="50"><br><br>
+                <label for="">Current Salary</label>
+                <input type="text" size="50" value="{{teacher.salary}}"><br><br>
 
-                <label for="">Address</label>
-                <input type="text" size="50"><br><br>
+                <label for="">New Salary</label>
+                <input type="text" size="50" name="new_salary"><br><br>
 
-                <label for="">Gender</label>
-                <input type="radio" name="gender" id=""><span> <label for=""> Male</label></span>
-                <input type="radio" name="gender" id=""><span> <label for=""> Female</label></span><br><br>
-
-                <label for="">DOB</label>
-                <input type="date" name="" id=""><br><br>
-
-                <label for="">Father's Name</label>
-                <input type="text" size="50"><br><br>
-
-                <label for="">Mother's Name</label>
-                <input type="text" size="50"><br><br>
-
-                <label for="">Mobile</label>
-                <input type="text" size="50"><br><br>
-
-                <label for="">Email</label>
-                <input type="text" size="50"><br><br>
-
-                <label for="">Enrollment No.</label>
-                <input type="text" size="50"><br><br>
-                
-                <input type="Submit" value="Update Student" id="submit">
+                <input type="Submit" value="Update" id="submit">
             </form>
             </div>
             </div>

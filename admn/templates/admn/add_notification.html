@@ -123,26 +123,25 @@
         <div class="sidebar">
             <a href="{% url 'admn:teachers_page' %}">Teacher</a>
             <a href="{% url 'admn:student_page' %}">Student</a>
-            <a href="">Attendance</a>
-            <a href="{% url 'admn:fees_page' %}">Fees</a>
             <a href="{% url 'admn:notification_page' %}">Announcements</a>
-            <a href="{% url 'admn:complaints_page' %}">Complaints</a>
+            <a href="{% url 'admn:attendance_class' %}">Attendance</a>
         </div>
 
         <div class="body">
             <div class="form">
                 
                 <div class="insideform">
-                    <form action="">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
                     <h3>Add Notification</h3>
-                <label for="">Notification No.</label>
-                <input type="text" size="50"><br><br>
+                <label for="">Notification Date</label>
+                <input type="date" name="date" id=""><br><br>
                 
                 <label for="">Message</label>
-                <textarea name="" id="input" cols="30" rows="10"></textarea><br><br>
+                <textarea name="message" id="input" cols="30" rows="10" ></textarea><br><br>
 
                 <label for="">Upload File</label>
-                <input type="file" name="" id=""><br><br>
+                <input type="file" name="document" id=""><br><br>
 
                 
                 

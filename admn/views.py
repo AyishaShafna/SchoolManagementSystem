@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.conf import settings
-from admn.models import Admin,Teacher
-from teacher.models import Student
+from admn.models import Admin,Teacher,Notification
+from teacher.models import Student,Attendance
 from django.views.decorators.cache import cache_control
 import random
 
@@ -88,20 +88,35 @@ def view_teacher(request):
     teacher_dt = Teacher.objects.all()
     return render(request,'admn/view_teacher.html',{'teacher_details':teacher_dt})
 
+
 def salary_page(request):
     return render(request,'admn/salary_page.html')
 
 def view_salary(request):
     return render(request,'admn/view_salary.html')
 
-def edit_salary(request):
-    return render(request,'admn/edit_salary.html')
+
+
+def edit_salary(request,teach_id):
+    teacher_dt = Teacher.objects.get(id = teach_id)
+    
+
+    return render(request,'admn/edit_salary.html',{'teach_data':teacher_dt})
+
+
+
+def update_salary(request,teacher_id):
+    teacher = Teacher.objects.get(id = teacher_id)
+    
+    return render(request,'admn/update_salary.html',{'teacher':teacher})
+
+
 
 def student_page(request):
     return render(request,'admn/student_page.html')
 
-def view_student(request):
-    student = Student.objects.all()
+def view_student(request, class_id):
+    student = Student.objects.filter(clas = class_id)
     return render(request,'admn/view_student.html',{'student':student})
 
 def update_student(request):
@@ -116,11 +131,35 @@ def view_feesdetails(request):
 def notification_page(request):
     return render(request,'admn/notification_page.html')
 
+
+
 def add_notification(request):
+    if request.method == 'POST':
+        n_date = request.POST['date']
+        n_message = request.POST['message']
+        n_document = request.FILES['document']
+
+        notification = Notification(
+            message = n_message,
+            notification = n_document,
+            date = n_date
+        )
+        notification.save()
+
     return render(request,'admn/add_notification.html')
 
+
+
 def view_notification(request):
-    return render(request,'admn/view_notification.html')
+    notification = Notification.objects.all()
+    return render(request,'admn/view_notification.html',{'notifications':notification})
 
 def complaints_page(request):
     return render(request,'admn/complaints_page.html')
+
+def attendance_class(request):
+    return render(request,'admn/attendance_class.html')
+
+def attendance_view(request,classid):
+    att = Attendance.objects.filter(student__clas = classid).select_related('student')
+    return render(request,'admn/attendance_view.html',{'attend':att})

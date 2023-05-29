@@ -33,7 +33,7 @@ class Meta:
 
 class Attendance(models.Model):
     student = models.ForeignKey(Student, on_delete = models.CASCADE)
-    date = models.DateField()
+    date = models.CharField(max_length = 30, default ='')
     status = models.CharField(max_length = 100)
 
 class Meta:

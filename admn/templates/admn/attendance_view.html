@@ -39,10 +39,11 @@
             height: 600px;
             background-color: #5B6B7A;
             border-right: black 2px solid;
-            position: static;
+            /* position: fixed; */
 
         }
-        .sidebar a{
+
+        .sidebar a {
             margin-top: 50px;
             margin-left: 30px;
             display: block;
@@ -50,40 +51,44 @@
             color: white;
             font-size: x-large;
         }
-        .sidebar a:hover{
+
+        .sidebar a:hover {
             color: black;
             text-decoration: underline;
         }
-        .body{
-            height: 600px;
-            width: 100%;
-            background-color:  #E0E0DE;
+        .container{
+            width:100%;
+            height:600px;
+            /* background-color: aquamarine; */
         }
-        .card{
-            background-color: #85B73E;
-            height: 180px;
-        }
-        .row{
+        .table-body{
+            width: 900px;
+            height: 150px;
+            margin-left: 30px;
             margin-top: 50px;
-            padding-bottom: 30px;
         }
-        .col-sm-4{
-            padding: 30px;
-        }
-        h3{
+        .table-body h2{
             text-align: center;
-            margin-top: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
-        .btn{
-            margin-top: 40px;
-            margin-left: 90px;
-            background-color: #02808f;
-            border: 1px solid #02808f ;
+        table{
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: separate;
+            border-spacing: 5px 5px;
         }
-        .btn:hover{
+        tr,th,td{
+            
+            padding: 15px;
+            /* border: grey 2px solid ; */
+            border-radius: 2em;
+        }
+        
+        th{
             background-color: pink;
-            border-color: pink;
-            color: black;
+        }
+        td{
+            background-color: #FDFD96;
         }
     </style>
 </head>
@@ -100,38 +105,29 @@
             <a href="{% url 'admn:notification_page' %}">Announcements</a>
             <a href="{% url 'admn:attendance_class' %}">Attendance</a>
         </div>
+        <div class="container">
+            <div class="table-body">
+                <h2>Attendance</h2><br>
+                <table>
+                    <tr class="head-row">
+                        <th>Roll No:</th>
+                                    <th>Name:</th>
+                                    <th>Attendance status</th>
+                                    <th>Date</th>
+                        
+                    </tr>
+                    {% for attendance in attend %}
+                    <tr class="body-row">
+                        <td>{{attendance.student.roll_no}}</td>
+                        <td>{{attendance.student.name}}</td>
+                        <td>{{attendance.status}}</td>
+                        <td>{{attendance.date}}</td>
+                        
 
-        <div class="body">
-            <div class="row">
-                <div class="col-sm-4 mb-3 mb-sm-0">
-                    <div class="card">
-                        <div class="card-body teacher-card">
-                            <h3 class="card-title">Add Teachers</h3>
-                            <a href="{% url 'admn:add_teacher' %}" class="btn btn-primary">Click Here</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-body student-card">
-                            <h3 class="card-title">View Teacher</h3>
-                            <a href="{% url 'admn:view_teacher' %}" class="btn btn-primary">Click Here</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-body attendance-card">
-                            <h3 class="card-title">Salary Details</h3>
-                            <a href="{% url 'admn:salary_page' %}" class="btn btn-primary">Click Here</a>
-                        </div>
-                    </div>
-                </div> -->
-                
-                
-                
-                
-    
+                    
+                    </tr>
+                    {% endfor %}
+                </table>
             </div>
         </div>
     </div>

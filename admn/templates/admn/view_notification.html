@@ -102,15 +102,14 @@
         <div class="sidebar">
             <a href="{% url 'admn:teachers_page' %}">Teacher</a>
             <a href="{% url 'admn:student_page' %}">Student</a>
-            <a href="">Attendance</a>
-            <a href="{% url 'admn:fees_page' %}">Fees</a>
             <a href="{% url 'admn:notification_page' %}">Announcements</a>
-            <a href="{% url 'admn:complaints_page' %}">Complaints</a>
+            <a href="{% url 'admn:attendance_class' %}">Attendance</a>
         </div>
         <div class="container">
             <div class="table-body">
                 <h2>Notifications</h2><br>
                 <table>
+                    
                     <tr class="head-row">
                         <th>Notification No</th>
                         <th>Message</th>
@@ -118,13 +117,15 @@
                         <th>Date</th>
                         
                     </tr>
+                    {% for notice in notifications %}
                     <tr class="body-row">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{notice.id}}</td>
+                        <td>{{notice.message}}</td>
+                        <td><a href="http://127.0.0.1:8000/media/{{notice.notification}}" target="_blank"> {{notice.notification}}</a>></td>
+                        <td>{{notice.date}}</td>
                     
                     </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>

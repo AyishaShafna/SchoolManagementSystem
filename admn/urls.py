@@ -14,11 +14,11 @@ urlpatterns = [
     path('view_teacher',views.view_teacher,name='view_teacher'),
     path('salary_page',views.salary_page,name='salary_page'),
     path('view_salary',views.view_salary,name='view_salary'),
-    path('edit_salary',views.edit_salary,name='edit_salary'),
+    
 
 
     path('student_page',views.student_page,name='student_page'),
-    path('view_student',views.view_student,name='view_student'),
+    path('view_student/<int:class_id>',views.view_student,name='view_student'),
     path('update_student',views.update_student,name='update_student'),
 
 
@@ -32,6 +32,11 @@ urlpatterns = [
     path('complaints_page',views.complaints_page,name='complaints_page'),
 
 
+    path('update_salary/<int:teacher_id>',views.update_salary,name='update_salary'),
+    path('edit_salary/<int:teach_id>',views.edit_salary,name='edit_salary'),
+
+    path('attendance_class',views.attendance_class, name = 'attendance_class'),
+    path('attendance_view/<int:classid>',views.attendance_view, name = 'attendance_view')
      
 
 

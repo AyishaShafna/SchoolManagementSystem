@@ -25,3 +25,20 @@ class Teacher(models.Model):
 
 class Meta:
     db_table = 'teacher_tbl'
+
+class Salary_Table(models.Model):
+    teacher = models.ForeignKey(Teacher,on_delete = models.CASCADE)
+    salary_paid = models.FloatField()
+    salary_pending = models.FloatField()
+
+class Meta:
+    db_table = 'salary_tbl'
+ 
+
+class Notification(models.Model):
+    message = models.CharField(max_length = 1000)
+    notification = models.FileField(upload_to = 'notifications/')
+    date = models.DateField()
+
+class Meta:
+    db_table = 'notification_tbl'
